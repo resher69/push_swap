@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   in_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kali <kali@student.42lyon.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/28 02:35:37 by agardet           #+#    #+#             */
-/*   Updated: 2021/09/05 21:52:13 by kali             ###   ########lyon.fr   */
+/*   Created: 2021/09/05 23:09:35 by kali              #+#    #+#             */
+/*   Updated: 2021/09/05 23:12:18 by kali             ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-int	main(int argc, char **argv)
+void    swap(int *stack, char *display)
 {
-	t_data	data;
-	int		*a_stack;
-	int		*b_stack;
+    int tmp;
 
-	a_stack = ft_parsing(argc, argv, &data);
-	b_stack = ft_calloc(sizeof(int), data.nbsqty + 1);
-	if (!b_stack)
-		ft_error(a_stack, NULL);
+    tmp = stack[0];
+    stack[0] = stack[1];
+    stack[1] = tmp;
+    write(1, display, 3);
+}
 
-	free(a_stack);
-	free(b_stack);
-	return (0);
+void    swap_both(int *a_stack, int *b_stack)
+{
+    s(a_stack, NULL);
+    s(b_stack, NULL);
+    write(1, "ss\n", 3);
 }

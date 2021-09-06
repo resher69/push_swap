@@ -3,18 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: agardet <agardet@student.42lyon.fr>        +#+  +:+       +#+         #
+#    By: kali <kali@student.42lyon.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/28 02:34:44 by agardet           #+#    #+#              #
-#    Updated: 2021/08/28 06:30:23 by agardet          ###   ########lyon.fr    #
+#    Updated: 2021/09/05 23:10:53 by kali             ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: clean, fclean, re
 .SUFFIXES: .c .o .h .a
-EXEC = push_swap.c	parsing.c	utils.c
+EXEC = push_swap
 EXEC_LIBFT = libft/libft.a
-SRCS = push_swap.c	utils.c parsing.c
+SRCS = push_swap.c	utils.c parsing.c parsing_utils.c	in_push_rotate.c	in_swap.c
 OBJS = $(SRCS:.c=.o)
 OBJDIR = objects/
 SRCDIR = sources/

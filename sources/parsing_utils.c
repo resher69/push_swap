@@ -21,7 +21,7 @@ long	ft_modified_atoi(char **argv, int *a_stack, int i, int count_qty)
 
 	nb = 0;
 	roam = 0;
-	j = 0;
+	j = -1;
 	if (argv[i][roam] == '-')
 		roam++;
 	while (argv[i][roam] && argv[i][roam] >= '0' && argv[i][roam] <= '9')
@@ -38,21 +38,21 @@ long	ft_modified_atoi(char **argv, int *a_stack, int i, int count_qty)
 		if (a_stack[i] == nb)
 			ft_error(a_stack, NULL);
 	}
-	return (nb);
+	return ((int)nb);
 }
-// ???
-int	*ft_sort_list(int *a_stack,t_data *data)
+
+// save the smallest and biggest number and their index in tab
+int	*ft_sort_list(int *a_stack, t_data *data)
 {
 	int	i;
-	int tab[4];
+	int	tab[4];
 
-	i = 0;
+	i = -1;
 	tab[0] = a_stack[0];
 	tab[1] = a_stack[0];
 	tab[2] = 0;
 	tab[3] = 0;
-	// ?
-	while (i < data->nbsqty)
+	while (++i < data->nbsqty)
 	{
 		if (a_stack[i] <= tab[0])
 		{
@@ -68,25 +68,26 @@ int	*ft_sort_list(int *a_stack,t_data *data)
 	return (ft_sort_list2(tab, data, a_stack));
 }
 
+// transform the input in a sorted list from 1 to nbs_qty
 int	*ft_sort_list2(int tab[], t_data *data, int *a_stack)
 {
 	int	*ret;
-	int	rang;
+	int	rank;
 	int	i;
 	int	search;
 
-	rang = 1;
+	rank = 1;
 	ret = ft_calloc(sizeof(int), data->nbsqty);
 	if (!ret)
 		return (NULL);
-	while (++rang < data->nbsqty)
+	while (++rank < data->nbsqty)
 	{
 		i = -1;
 		search = tab[1];
 		while (++i < data->nbsqty)
 		{
 			if (a_stack[i] < search && a_stack[i] > tab[0])
-				switch_value(&ret[i], rang, &search, a_stack[i]);
+				switch_value(&ret[i], rank, &search, a_stack[i]);
 		}
 		tab[0] = search;
 	}
@@ -94,12 +95,13 @@ int	*ft_sort_list2(int tab[], t_data *data, int *a_stack)
 	ret[tab[3]] = data->nbsqty;
 	free(a_stack);
 	return (ret);
-	
-	
 }
 
-void	switch_value(int *ranked_stack_i, int rang, int *searcher, int stack_a)
+
+
+//change value
+void	switch_value(int *ranked_stack_i, int rank, int *searcher, int a_stack)
 {
-	(*ranked_stack_i) = rang;
-	(*searcher) = stack_a;
+	(*ranked_stack_i) = rank;
+	(*searcher) = a_stack;
 }

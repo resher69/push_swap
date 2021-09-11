@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kali <kali@student.42lyon.fr>              +#+  +:+       +#+        */
+/*   By: agardet <agardet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 02:35:37 by agardet           #+#    #+#             */
-/*   Updated: 2021/09/05 21:52:13 by kali             ###   ########lyon.fr   */
+/*   Updated: 2021/09/11 05:06:52 by agardet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	main(int argc, char **argv)
 	b_stack = ft_calloc(sizeof(int), data.nbsqty + 1);
 	if (!b_stack)
 		ft_error(a_stack, NULL);
-
+	if (ft_is_sorted(a_stack, &data) == EXIT_FAILURE)
+		ft_choose_algo(a_stack, b_stack, &data);
 	free(a_stack);
 	free(b_stack);
 	return (0);

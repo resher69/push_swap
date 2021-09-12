@@ -6,7 +6,7 @@
 /*   By: agardet <agardet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 05:05:40 by agardet           #+#    #+#             */
-/*   Updated: 2021/09/11 04:56:08 by agardet          ###   ########lyon.fr   */
+/*   Updated: 2021/09/12 06:42:07 by agardet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,14 @@ typedef struct s_data
 	int	max;
 }		t_data;
 
+
+int		verif_exist_nb(int nb, int nb_of_nb, int *stack);
+
 //parsing 11 files 
 int		*ft_parsing(int argc, char **argv, t_data *data);
 int		*ft_argv_to_tab(int argc, char **argv, t_data *data);
 void	ft_get_Nbsqty(char **list, t_data *data);
-void	ft_check_a_stack_error(char **argv, int *a_stack, char **list);	
+void	ft_check_a_stack_error(int argc, char **argv, int *a_stack);
 long	ft_modified_atoi(char **argv, int *a_stack, int i, int count_qty);
 int		*ft_sort_list(int *a_stack, t_data *data);
 int		*ft_sort_list2(int tab[], t_data *data, int *a_stack);

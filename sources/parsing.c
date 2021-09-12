@@ -6,7 +6,7 @@
 /*   By: agardet <agardet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 02:45:30 by agardet           #+#    #+#             */
-/*   Updated: 2021/09/12 06:14:22 by agardet          ###   ########lyon.fr   */
+/*   Updated: 2021/09/12 06:44:53 by agardet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_get_nbsqty(char **list, t_data *data)
 }
 
 //count how many numbers in the list
-void	av_to_tab2(int argc, char **argv, int *a_stack)
+void	ft_check_a_stack_error(int argc, char **argv, int *a_stack)
 {
 	int		count_qty;
 	char	**list;
@@ -84,7 +84,7 @@ int	*ft_argv_to_tab(int argc, char **argv, t_data *data)
 	a_stack = malloc(sizeof(int) * data->nbsqty);
 	if (!a_stack)
 		ft_error(NULL, NULL);
-	av_to_tab2(argc, argv, a_stack);
+	ft_check_a_stack_error(argc, argv, a_stack);
 	return (a_stack);
 }
 

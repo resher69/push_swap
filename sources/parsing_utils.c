@@ -21,7 +21,6 @@ long	ft_modified_atoi(char **argv, int *a_stack, int i, int count_qty)
 
 	nb = 0;
 	roam = 0;
-	j = -1;
 	if (argv[i][roam] == '-')
 		roam++;
 	while (argv[i][roam] && argv[i][roam] >= '0' && argv[i][roam] <= '9')
@@ -33,9 +32,10 @@ long	ft_modified_atoi(char **argv, int *a_stack, int i, int count_qty)
 		nb *= -1;
 	if (nb < INT_MIN || nb > INT_MAX)
 		ft_error(a_stack, NULL);
+	j = -1;
 	while (++j < count_qty)
 	{
-		if (a_stack[i] == nb)
+		if (a_stack[j] == nb)
 			ft_error(a_stack, NULL);
 	}
 	return ((int)nb);

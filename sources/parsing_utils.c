@@ -97,8 +97,6 @@ int	*ft_sort_list2(int tab[], t_data *data, int *a_stack)
 	return (ret);
 }
 
-
-
 //change value
 void	switch_value(int *ranked_stack_i, int rank, int *searcher, int a_stack)
 {

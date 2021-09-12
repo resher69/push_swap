@@ -6,7 +6,7 @@
 /*   By: agardet <agardet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 02:45:30 by agardet           #+#    #+#             */
-/*   Updated: 2021/09/12 05:27:17 by agardet          ###   ########lyon.fr   */
+/*   Updated: 2021/09/12 05:29:03 by agardet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ int	*ft_argv_to_tab(int argc, char **argv, t_data *data)
 		if (!list)
 			ft_error(NULL, NULL);
 		ft_get_nbsqty(list, data);
-		i++;
 	}
 	a_stack = malloc(sizeof(int) * data->nbsqty);
 	if (!a_stack)

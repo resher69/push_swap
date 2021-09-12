@@ -6,7 +6,7 @@
 /*   By: agardet <agardet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 02:45:30 by agardet           #+#    #+#             */
-/*   Updated: 2021/09/11 05:31:04 by agardet          ###   ########lyon.fr   */
+/*   Updated: 2021/09/12 05:27:17 by agardet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	ft_get_nbsqty(char **list, t_data *data)
 	while (list[++i])
 	{
 		roam = 0;
-		if (list[i][roam] == '-' && list[i][roam] >= '0' \
-				&& list[i][roam] <= '9')
+		if (list[i][roam] == '-' && list[i][roam + 1] >= '0' \
+				&& list[i][roam + 1] <= '9')
 			roam++;
 		if (list[i][roam] >= '0' && list[i][roam] <= '9')
 		{
@@ -64,8 +64,8 @@ int	*ft_argv_to_tab(int argc, char **argv, t_data *data)
 	int		i;
 	char	**list;
 
-	i = 1;
-	while (i < argc)
+	i = 0;
+	while (++i < argc)
 	{
 		list = ft_split(argv[i], ' ');
 		if (!list)

@@ -6,7 +6,7 @@
 /*   By: agardet <agardet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 02:45:30 by agardet           #+#    #+#             */
-/*   Updated: 2021/09/12 06:44:53 by agardet          ###   ########lyon.fr   */
+/*   Updated: 2021/09/12 07:02:48 by agardet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_get_nbsqty(char **list, t_data *data)
 	i = -1;
 	while (list[++i])
 	{
-		roam = 0;
+		roam = 1;
 		if (list[i][roam] == '-' && list[i][roam + 1] >= '0' \
 				&& list[i][roam + 1] <= '9')
 			roam++;

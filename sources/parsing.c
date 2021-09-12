@@ -6,7 +6,7 @@
 /*   By: agardet <agardet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 02:45:30 by agardet           #+#    #+#             */
-/*   Updated: 2021/09/12 05:29:03 by agardet          ###   ########lyon.fr   */
+/*   Updated: 2021/09/12 06:12:28 by agardet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,31 @@ void	ft_get_nbsqty(char **list, t_data *data)
 }
 
 //count how many numbers in the list
-void	ft_check_a_stack_error(char **argv, int *a_stack, char **list)
+void	av_to_tab2(int argc, char **argv, int *a_stack)
 {
-	int	i;
-	int	count_qty;
+	int		count_qty;
+	char	**list;
+	int		index;
+	int		i;
 
-	i = 0;
+	index = 0;
 	count_qty = 0;
-	while (list[i])
+	while (++index < argc)
 	{
-		if (list[i][0] == '-' || (list[i][0] >= '0' && list[i][0] <= '9'))
+		list = ft_split(argv[index], ' ');
+		if (!list)
+			exit (-1);
+		i = -1;
+		while (list[++i])
 		{
-			a_stack[count_qty] = ft_modified_atoi(argv, a_stack, i, count_qty);
-			count_qty++;
+			if (('0' <= list[i][0] && list[i][0] <= '9') || list[i][0] == '-')
+			{
+				a_stack[count_qty] = ft_modified_atoi(list, a_stack, i, count_qty);
+				count_qty++;
+			}
 		}
-		i++;
+		free_tab(list);
 	}
-	free_tab(list);
 }
 
 //put the input in char **list and malloc
@@ -75,7 +83,7 @@ int	*ft_argv_to_tab(int argc, char **argv, t_data *data)
 	a_stack = malloc(sizeof(int) * data->nbsqty);
 	if (!a_stack)
 		ft_error(NULL, NULL);
-	ft_check_a_stack_error(argv, a_stack, list);
+	av_to_tab2(argc, argv, a_stack);
 	return (a_stack);
 }
 

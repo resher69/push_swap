@@ -6,7 +6,7 @@
 /*   By: agardet <agardet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 02:45:30 by agardet           #+#    #+#             */
-/*   Updated: 2021/09/13 03:01:59 by agardet          ###   ########lyon.fr   */
+/*   Updated: 2021/09/13 03:09:27 by agardet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,33 @@ void	ft_get_nbsqty(char **list, t_data *data)
 		if (list[i][roam] && !(list[i][roam] >= '0' && list[i][roam] <= '9'))
 			ft_error(NULL, NULL);
 	}
+}
+
+//get nb as an int and check for errors
+long	ft_modified_atoi(char **argv, int *a_stack, int i, int count_qty)
+{
+	long	nb;
+	int		roam;
+	int		j;
+
+	nb = 0;
+	roam = 0;
+	if (argv[i][roam] == '-')
+		roam++;
+	while (argv[i][roam] && argv[i][roam] >= '0' && argv[i][roam] <= '9')
+	{
+		nb = nb * 10 + argv[i][roam] - '0';
+		roam++;
+	}
+	if (argv[i][0] == '-')
+		nb *= -1;
+	if (nb < INT_MIN || nb > INT_MAX)
+		ft_error(a_stack, NULL);
+	j = -1;
+	while (++j < count_qty)
+		if (a_stack[j] == nb)
+			ft_error(a_stack, NULL);
+	return ((int)nb);
 }
 
 //count how many numbers in the list

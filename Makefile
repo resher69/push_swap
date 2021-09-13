@@ -6,15 +6,16 @@
 #    By: agardet <agardet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/28 02:34:44 by agardet           #+#    #+#              #
-#    Updated: 2021/09/11 03:37:52 by agardet          ###   ########lyon.fr    #
+#    Updated: 2021/09/13 03:08:32 by agardet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: clean, fclean, re
 .SUFFIXES: .c .o .h .a
 EXEC = push_swap
+BONUS = checker
 EXEC_LIBFT = libft/libft.a
-SRCS = push_swap.c	utils.c parsing.c parsing_utils.c	in_push_rotate.c	in_swap.c	algo.c	algo_bis.c
+SRCS = push_swap.c	utils.c parsing.c parsing_rank.c	in_push_rotate.c	in_swap.c	algo.c	algo_bis.c
 OBJS = $(SRCS:.c=.o)
 OBJDIR = objects/
 SRCDIR = sources/
@@ -31,6 +32,7 @@ $(EXEC_LIBFT):
 	make -C $(LIBDIR)
 $(EXEC): $(OBJS)
 	cc $(CFLAGS) $(addprefix $(OBJDIR), $(notdir $^)) -L $(LIBDIR)  $(LIBS) -o $(EXEC)
+
 %.o: %.c
 	cc -c $(CFLAGS) $< -I $(INCDIR) -I $(LIBDIR) -o $(addprefix $(OBJDIR), $@)
 clean:

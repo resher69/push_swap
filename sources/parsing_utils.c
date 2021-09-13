@@ -34,10 +34,8 @@ long	ft_modified_atoi(char **argv, int *a_stack, int i, int count_qty)
 		ft_error(a_stack, NULL);
 	j = -1;
 	while (++j < count_qty)
-	{
 		if (a_stack[j] == nb)
 			ft_error(a_stack, NULL);
-	}
 	return ((int)nb);
 }
 

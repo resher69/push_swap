@@ -6,7 +6,7 @@
 /*   By: agardet <agardet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/28 02:45:30 by agardet           #+#    #+#             */
-/*   Updated: 2021/09/12 07:03:35 by agardet          ###   ########lyon.fr   */
+/*   Updated: 2021/09/13 03:01:59 by agardet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,8 @@ void	ft_get_nbsqty(char **list, t_data *data)
 				roam++;
 			data->nbsqty++;
 		}
-		else
-			if (list[i][roam])
-				ft_error(NULL, NULL);
+		if (list[i][roam] && !(list[i][roam] >= '0' && list[i][roam] <= '9'))
+			ft_error(NULL, NULL);
 	}
 }
 

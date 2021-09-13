@@ -6,7 +6,7 @@
 #    By: agardet <agardet@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/27 11:11:01 by agardet           #+#    #+#              #
-#    Updated: 2021/05/15 16:18:48 by agardet          ###   ########lyon.fr    #
+#    Updated: 2021/09/13 00:17:18 by agardet          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,9 @@ SRCS	=		ft_putchar.c\
 				ft_lstsize.c\
 				ft_lstclear.c\
 				ft_lstiter.c\
-				ft_lstmap.c
+				ft_lstmap.c\
+				get_next_line.c\
+				get_next_line_utils.c
 
 
 OBJS	=	$(SRCS:.c=.o)

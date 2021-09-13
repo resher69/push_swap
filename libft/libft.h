@@ -6,7 +6,7 @@
 /*   By: agardet <agardet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 10:05:32 by agardet           #+#    #+#             */
-/*   Updated: 2021/09/12 06:14:56 by agardet          ###   ########lyon.fr   */
+/*   Updated: 2021/09/13 00:49:04 by agardet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <sys/types.h>
+
+# define BUFFER_SIZE 42
 
 typedef struct s_list
 {
@@ -23,6 +26,11 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
+char		*ft_sstrjoin(char *s1, char *s2);
+char		*ft_sstrcat(char *dst, const char *src);
+ssize_t		ft_check_new_line(char *buf);
+size_t		ft_strlen(const char *s);
+int			get_next_line(int fd, char **line);
 void		ft_putchar(char c);
 size_t		ft_strlen(const char *s);
 void		*ft_memset(void *b, int c, size_t len);
